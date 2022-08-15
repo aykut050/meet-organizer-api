@@ -12,7 +12,7 @@ load_dotenv()
 my_client = pymongo.MongoClient(os.getenv("DATABASE_CONNECTION_STRING"))
 
 app = Flask(__name__) #creating the Flask class object   
-cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+cors = CORS(app, resources={r"/*": {"origins": "https://meet-organizer-api.herokuapp.com"}})
 
 @app.route('/', methods=['GET']) #decorator drfines the   
 @cross_origin()
