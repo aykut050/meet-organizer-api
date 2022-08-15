@@ -17,13 +17,13 @@ cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 @app.route('/', methods=['GET']) #decorator drfines the   
 @cross_origin()
 def home():  
-    db = my_client['Meeting-Organizer']
-    meets = db["Meet"]
+    #db = my_client['Meeting-Organizer']
+    #meets = db["Meet"]
     
-    all_meets = dumps(meets.find({}))
+    #all_meets = dumps(meets.find({}))
 
     return jsonify(
-        all_meets
+        "asdsd"
     )
 
 @app.route('/add-meet', methods=['POST']) #decorator drfines the   
