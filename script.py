@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+#load_dotenv()
 
 my_client = pymongo.MongoClient(os.getenv("DATABASE_CONNECTION_STRING"))
 
