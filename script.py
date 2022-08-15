@@ -12,10 +12,9 @@ load_dotenv()
 my_client = pymongo.MongoClient(os.getenv("DATABASE_CONNECTION_STRING"))
 
 app = Flask(__name__) #creating the Flask class object   
-#cors = CORS(app, resources={r"/*": {"origins": "https://meet-organizer-client.herokuapp.com"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/', methods=['GET']) #decorator drfines the   
-@crossdomain(origin='*')
 def home():  
     db = my_client['Meeting-Organizer']
     meets = db["Meet"]
@@ -27,7 +26,6 @@ def home():
     )
 
 @app.route('/add-meet', methods=['POST']) #decorator drfines the   
-@crossdomain(origin='*')
 def add_meet():  
     request_parameters = request.json
     
@@ -50,7 +48,6 @@ def add_meet():
     )
   
 @app.route('/edit-meet', methods=['PUT']) #decorator drfines the   
-@crossdomain(origin='*')
 def edit_meet():      
     request_parameters = request.json
 
@@ -75,7 +72,6 @@ def edit_meet():
     )
   
 @app.route('/edit-meet/<meet_id>', methods=['GET']) #decorator drfines the   
-@crossdomain(origin='*')
 def get_meet(meet_id):      
     db = my_client['Meeting-Organizer']
     meets = db["Meet"]
