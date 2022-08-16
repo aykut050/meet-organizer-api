@@ -4,12 +4,12 @@ from flask_cors import CORS, cross_origin
 import pymongo
 from bson.json_util import dumps
 from bson.objectid import ObjectId
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 
-#load_dotenv()
+load_dotenv()
 
-my_client = pymongo.MongoClient("mongodb+srv://Aykut:Qwertyasd@meeting-organizer.jkjp3mk.mongodb.net/?retryWrites=true&w=majority")
+my_client = pymongo.MongoClient(os.getenv("DATABASE_CONNECTION_STRING"))
 
 app = Flask(__name__) #creating the Flask class object   
 cors = CORS(app, resources={r"/*": {"origins": "https://meet-organizer-client.herokuapp.com"}})
