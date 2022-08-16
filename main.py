@@ -103,6 +103,3 @@ def delete_meet():
     return jsonify(
         message= "Toplantı Başarıyla Silindi."
     )
-
-if __name__ =='__main__':  
-    app.run()  
