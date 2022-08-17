@@ -34,8 +34,6 @@ def add_meet():
     db = my_client['Meeting-Organizer']
     meet = db["Meet"]
     
-    print(request_parameters)
-
     meet_to_insert = { 
         "topic_of_meet": request_parameters["meet"]["topic_of_meet"],
         "date": request_parameters["meet"]["date"],
@@ -54,8 +52,6 @@ def add_meet():
 def edit_meet():      
     request_parameters = request.json
 
-    print(request_parameters)
-
     db = my_client['Meeting-Organizer']
     meets = db["Meet"]
     
@@ -67,8 +63,6 @@ def edit_meet():
                                         "finish_time": request_parameters["meet"]["finish_time"],
                                         "participants": request_parameters["meet"]["participants"] 
                                      }}, upsert=True)
-
-    print(meet)
     
     return jsonify(
         message= "Veri Güncellendi."
